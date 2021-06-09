@@ -219,7 +219,7 @@ function CashRegister() {
 
     useEffect((() => {
         const sum = cashReg.reduce(function (sum, { id, payment }) {
-            const updatedSum = payment.typePayment ? sum + parseInt(payment.amount) : sum - payment.amount;
+            const updatedSum = payment.typePayment ? sum + parseInt(payment.amount) : sum - parseInt(payment.amount);
             console.log(updatedSum);
             return updatedSum;
         }, 0);
@@ -266,7 +266,7 @@ function CashRegister() {
                                     <TextField className={classes.inputs}
                                         label="Amount"
                                         name="amount"
-                                        type="tel"
+                                        type="number"
                                         onChange={e => setValue(e)}
                                         variant="outlined"
                                     />
