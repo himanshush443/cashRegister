@@ -1,0 +1,67 @@
+[debug] [2021-06-09T05:35:21.713Z] ----------------------------------------------------------------------
+[debug] [2021-06-09T05:35:21.715Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\himan\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2021-06-09T05:35:21.716Z] CLI Version:   9.11.0
+[debug] [2021-06-09T05:35:21.716Z] Platform:      win32
+[debug] [2021-06-09T05:35:21.716Z] Node Version:  v14.15.1
+[debug] [2021-06-09T05:35:21.722Z] Time:          Wed Jun 09 2021 11:05:21 GMT+0530 (India Standard Time)
+[debug] [2021-06-09T05:35:21.722Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-09T05:35:21.726Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-06-09T05:35:21.752Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-09T05:35:21.752Z] > authorizing via signed-in user (sc90655@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\himan\OneDrive\Desktop\react_apps\project_test\superidea-app
+
+[debug] [2021-06-09T05:35:22.861Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-06-09T05:35:22.862Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2021-06-09T05:35:58.929Z] > refreshing access token with scopes: []
+[debug] [2021-06-09T05:35:58.930Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-06-09T05:35:59.230Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 09 Jun 2021 05:35:59 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-09T05:35:59.251Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2021-06-09T05:36:00.133Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2021-06-09T05:36:00.134Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2021-06-09T05:37:47.346Z] ----------------------------------------------------------------------
+[debug] [2021-06-09T05:37:47.348Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\himan\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2021-06-09T05:37:47.349Z] CLI Version:   9.11.0
+[debug] [2021-06-09T05:37:47.349Z] Platform:      win32
+[debug] [2021-06-09T05:37:47.349Z] Node Version:  v14.15.1
+[debug] [2021-06-09T05:37:47.350Z] Time:          Wed Jun 09 2021 11:07:47 GMT+0530 (India Standard Time)
+[debug] [2021-06-09T05:37:47.350Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-09T05:37:47.357Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-09T05:37:47.357Z] > authorizing via signed-in user (sc90655@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\himan\OneDrive\Desktop\react_apps\project_test\superidea-app
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
