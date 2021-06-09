@@ -89,7 +89,6 @@ const useStyles = makeStyles({
 });
 
 function CashRegister() {
-
     const classes = useStyles();
 
     var today = new Date();
@@ -108,6 +107,7 @@ function CashRegister() {
     const [cash, setCash] = useState({
         amount: '',
         remark: '',
+        finalBalance: 0,
         typePayment: false
     });
     const [cashReg, setCashReg] = useState([]);
@@ -136,9 +136,18 @@ function CashRegister() {
 
     const handleUpload = (e) => {
         e.preventDefault();
-
         if (cash.amount !== '' && cash.remark !== '' && image != null) {
 
+            if (cash.typePayment)
+                setCash({
+                    ...cash,
+                    finalBalance: cash.finalBalance + cash.amount
+                });
+            else
+                setCash({
+                    ...cash,
+                    finalBalance: cash.finalBalance - cash.amount
+                });
             const uploadTask = storage.ref(`images/${image.name}`).put(image);
 
             uploadTask.on(
@@ -164,6 +173,7 @@ function CashRegister() {
                                 amount: cash.amount,
                                 remark: cash.remark,
                                 typePayment: cash.typePayment,
+                                finalBalance: cash.finalBalance,
                                 date: date,
                                 imageUrl: url
                             })
@@ -175,10 +185,10 @@ function CashRegister() {
                                 typePayment: false
                             });
                             setWarning('');
-                            setFinalBalance(0);
                         });
                 }
             )
+
         }
         else {
             setWarning('Please fill all fields and bills!');
@@ -187,22 +197,34 @@ function CashRegister() {
 
     useEffect(() => {
         db.collection('cashReg').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
-            setCashReg(snapshot.docs.map(doc => ({
-                id: doc.id,
-                payment: doc.data()
-            })));
+            setCashReg(snapshot.docs.map(doc => {
+                return {
+                    id: doc.id,
+                    payment: doc.data()
+                }
+            }));
         });
 
-        cashReg.map(({ id, payment }) => {
-            console.log(payment.amount);
-            if (payment.typePayment)
-                setFinalBalance(finalBalance + parseInt(payment.amount));
-            else
-                setFinalBalance(finalBalance - parseInt(payment.amount));
-            console.log(finalBalance);
-        })
+
+        
+        // cashReg.map(({ id, payment }) => {
+        //     console.log(payment.amount);
+        //     if (payment.typePayment)
+        //         setFinalBalance(finalBalance + parseInt(payment.amount));
+        //     else
+        //         setFinalBalance(finalBalance - parseInt(payment.amount));
+        //     console.log(finalBalance);
+        // })
     }, []);
 
+    useEffect((() => {
+        const sum = cashReg.reduce(function (sum, { id, payment }) {
+            const updatedSum = payment.typePayment ? sum + parseInt(payment.amount) : sum - payment.amount;
+            console.log(updatedSum);
+            return updatedSum;
+        }, 0);
+        setFinalBalance(sum);
+    }),[cashReg]);
 
 
 
@@ -288,16 +310,16 @@ function CashRegister() {
                                     </Box>
                                 </CardContent>
                             </form>
-                            {/* <CardContent>
+                            <CardContent>
                                 <Grid container>
                                     <Grid item xs={6}>
                                         <Typography>Final Balance : </Typography>
                                     </Grid>
                                     <Grid item xs={6}>
-                                        // {finalBalance}
+                                        {finalBalance}
                                     </Grid>
                                 </Grid>
-                            </CardContent> */}
+                            </CardContent>
                         </Card>
                     </Grid>
                     <Grid md={1} />
